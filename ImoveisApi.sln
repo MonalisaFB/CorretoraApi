@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34309.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImoveisApi", "ImoveisApi\ImoveisApi.csproj", "{76B80830-1DDA-4B43-8597-43E656B34ACC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dados", "Dados\Dados.csproj", "{30FC9794-AC3E-4253-8C39-6F79DF7A9BCA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{76B80830-1DDA-4B43-8597-43E656B34ACC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76B80830-1DDA-4B43-8597-43E656B34ACC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76B80830-1DDA-4B43-8597-43E656B34ACC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76B80830-1DDA-4B43-8597-43E656B34ACC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30FC9794-AC3E-4253-8C39-6F79DF7A9BCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30FC9794-AC3E-4253-8C39-6F79DF7A9BCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30FC9794-AC3E-4253-8C39-6F79DF7A9BCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30FC9794-AC3E-4253-8C39-6F79DF7A9BCA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1D878BE2-9099-4B54-867B-4D24188FCBF4}
+	EndGlobalSection
+EndGlobal
