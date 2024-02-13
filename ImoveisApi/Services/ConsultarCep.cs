@@ -1,4 +1,4 @@
-﻿using ImoveisApi.Moldes;
+﻿using Dados.Models;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.ResponseCompression;
 

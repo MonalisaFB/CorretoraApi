@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\monalisab\\OneDrive\\Desktop\\Curso ADA\\AtividadesMe\\ImoveisApi\\Dados\\Dados.csproj": {}
+    "C:\\Users\\monalisab\\OneDrive\\Desktop\\Curso ADA\\4 API WEB\\ImoveisApi\\Dados\\Dados.csproj": {}
   },
   "projects": {
-    "C:\\Users\\monalisab\\OneDrive\\Desktop\\Curso ADA\\AtividadesMe\\ImoveisApi\\Dados\\Dados.csproj": {
+    "C:\\Users\\monalisab\\OneDrive\\Desktop\\Curso ADA\\4 API WEB\\ImoveisApi\\Dados\\Dados.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\monalisab\\OneDrive\\Desktop\\Curso ADA\\AtividadesMe\\ImoveisApi\\Dados\\Dados.csproj",
+        "projectUniqueName": "C:\\Users\\monalisab\\OneDrive\\Desktop\\Curso ADA\\4 API WEB\\ImoveisApi\\Dados\\Dados.csproj",
         "projectName": "Dados",
-        "projectPath": "C:\\Users\\monalisab\\OneDrive\\Desktop\\Curso ADA\\AtividadesMe\\ImoveisApi\\Dados\\Dados.csproj",
+        "projectPath": "C:\\Users\\monalisab\\OneDrive\\Desktop\\Curso ADA\\4 API WEB\\ImoveisApi\\Dados\\Dados.csproj",
         "packagesPath": "C:\\Users\\monalisab\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\monalisab\\OneDrive\\Desktop\\Curso ADA\\AtividadesMe\\ImoveisApi\\Dados\\obj\\",
+        "outputPath": "C:\\Users\\monalisab\\OneDrive\\Desktop\\Curso ADA\\4 API WEB\\ImoveisApi\\Dados\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

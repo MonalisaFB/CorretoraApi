@@ -1,135 +1,126 @@
-﻿using ImoveisApi.Models;
-using ImoveisApi.Moldes;
+﻿using Dados.Models;
 using ImoveisApi.Requeste;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using ImoveisApi.Services;
-using ImoveisApi.Filters;
+using Dados;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ImoveisApi.Controllers
 {
-    [Route("api/imovel")]
     [ApiController]
+    [Route("api/imovel")]
+
     public class ImoveisController : ControllerBase
     {
-        private static List<Imovel>? _imoveis;
+        private readonly IImovelRepositorio _imovelRepositorio;
+        private readonly ConsultarCep _consultarCep;
 
 
-
-
-
-
-        public ImoveisController()
+        public ImoveisController(IImovelRepositorio imovelRepositorio, ConsultarCep consultarCep)
         {
-            if (_imoveis == null)
-            {
-                _imoveis = new List<Imovel>();
-            }
+            _imovelRepositorio = imovelRepositorio;
+            _consultarCep = consultarCep;
         }
-
 
         [HttpGet]
-        public IActionResult Get()
-
+        public IActionResult Get(bool erro)
         {
-            return Ok(_imoveis);
-        }
-
-        [HttpGet("{id}")]
-        public IActionResult Get([FromRoute] Guid id)
-
-        {
-            var imovel = _imoveis.FirstOrDefault(x => x.Id == id);
-
-            if (imovel == null)
+            if (erro)
             {
-                return NotFound();
-            }
-            return Ok(imovel);
-        }
+                throw new Exception("Erro no sistema");
 
-        [HttpDelete("{id}")]
-        [filtroAutorizacao]
-        public IActionResult Delelte([FromRoute] Guid id)
-
-        {
-            var imovelExcluido = _imoveis.FirstOrDefault(x => x.Id == id);
-
-            if (imovelExcluido == null)
-            {
-                return NotFound();
             }
 
-            _imoveis.Remove(imovelExcluido);
-            return Ok(imovelExcluido);
+            return NotFound(_imovelRepositorio.GetAll());
         }
 
-        [HttpPut("{id}")]
 
-        public async Task<IActionResult> Put([FromRoute] Guid id,
-                                             [FromBody] CriarRequeste imovelRequest,
-                                             ConsultarCep consultarCep)
-        {
-            var imovel = _imoveis.FirstOrDefault(x => x.Id == id);
+         [HttpGet("{id}")]
+         public IActionResult Get([FromRoute] Guid id)
 
-            if (imovel == null)
+         {
+             var imovel = _imovelRepositorio.GetById(id);
+
+             if (imovel == null)
+             {
+                 return NotFound();
+             }
+             return Ok(imovel);
+         }
+
+         [HttpDelete("{id}")]
+         public IActionResult Delelte([FromRoute] Guid id)
+
+         {
+             var imovelExcluido = _imovelRepositorio.GetById(id);
+
+             if (imovelExcluido == null)
+             {
+                 return NotFound();
+             }
+
+            _imovelRepositorio.Remove(imovelExcluido);
+             return Ok(imovelExcluido);
+         }
+
+         [HttpPut("{id}")]
+
+         public async Task<IActionResult> Put([FromRoute] Guid id,
+                                              [FromBody] CriarRequeste imovelRequest,
+                                              ConsultarCep consultarCep)
+         {
+             var imovel = _imovelRepositorio.GetById(id);
+
+             if (imovel == null)
+            {
                 return NotFound();
 
-
-            string endereco = await consultarCep.ConsultarCepEndereco(imovelRequest.Cep);
-
-            if (string.IsNullOrWhiteSpace(endereco))
-            {
-                return BadRequest("O endereço deve ser preenchido!");
             }
 
-            imovel.Endereco = endereco;
+
+            string enderecoCep = await consultarCep.ConsultarCepEndereco(imovelRequest.Cep);
+
+             if (string.IsNullOrWhiteSpace(enderecoCep))
+             {
+                 return BadRequest("O endereço deve ser preenchido!");
+            }
+
+            imovel.Rua = imovelRequest.Rua;
+            imovel.Numero = imovelRequest.Numero;
+            imovel.Complemento = imovelRequest.Complemento;
+            imovel.Descricao = imovelRequest.Descricao;
             imovel.Proprietario = imovelRequest.Proprietario;
 
-            return Ok(imovel);
+             return Ok(imovel);
 
-        }
+         }
 
 
 
-        [HttpPost]
-        private static async Task<IActionResult> Post(ImoveisController @this, [FromBody] CriarRequeste imovelRequest)
-        {
-            throw new Exception("Corrompido");
+         [HttpPost]
+         private async Task<IActionResult> Post( [FromBody] CriarRequeste imovelRequest, ConsultarCep consultarCep)
+         {
+            string enderecoCep = await _consultarCep.ConsultarCepEndereco(imovelRequest.Cep);
 
-            string? endereco = null;
-            if (!string.IsNullOrEmpty(imovelRequest.Cep))
+            if (string.IsNullOrWhiteSpace(enderecoCep))
             {
-                var httpClient = new HttpClient();
-                httpClient.BaseAddress = new Uri("https://brasilapi.com.br/api/cep/v1/");
-
-                var request = await httpClient.GetAsync(imovelRequest.Cep);
-
-                if (request.IsSuccessStatusCode)
-                {
-                    var enderecoCep = await request.Content.ReadFromJsonAsync<EnderecoCep>();
-                    endereco = enderecoCep.EscreverEndereco();
-                }
-
-            }
-
-            endereco ??= imovelRequest.Endereco;
-
-            if (string.IsNullOrWhiteSpace(endereco))
-            {
-                return @this.BadRequest("O endereço deve ser preenchido!");
+                return BadRequest("O Cep deve ser preenchido!");
             }
 
             var imovel = new Imovel
             {
-                Id = Guid.NewGuid(),
-                Endereco = endereco,
+                Rua = imovelRequest.Rua,
+                Numero = imovelRequest.Numero,
+                Complemento = imovelRequest.Complemento,
+                Descricao = imovelRequest.Descricao,
                 Proprietario = imovelRequest.Proprietario
             };
 
-            _imoveis.Add(imovel);
-            return @this.Created($"/api/imovel/{imovel.Id}", imovel);
-        }
+            _imovelRepositorio.Add(imovel);
+            return Created($"/api/imovel/{imovel}", imovel);
+
+         }
     }
 }   

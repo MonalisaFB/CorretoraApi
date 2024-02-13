@@ -1,4 +1,4 @@
-﻿namespace ImoveisApi.Moldes
+﻿namespace Dados.Models
 {
     public class EnderecoCep
     {

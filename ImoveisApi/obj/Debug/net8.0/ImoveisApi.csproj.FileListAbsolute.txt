@@ -31,3 +31,14 @@ C:\Users\monalisab\OneDrive\Desktop\Curso ADA\AtividadesMe\ImoveisApi\ImoveisApi
 C:\Users\monalisab\OneDrive\Desktop\Curso ADA\AtividadesMe\ImoveisApi\ImoveisApi\obj\Debug\net8.0\ImoveisApi.pdb
 C:\Users\monalisab\OneDrive\Desktop\Curso ADA\AtividadesMe\ImoveisApi\ImoveisApi\obj\Debug\net8.0\ImoveisApi.genruntimeconfig.cache
 C:\Users\monalisab\OneDrive\Desktop\Curso ADA\AtividadesMe\ImoveisApi\ImoveisApi\obj\Debug\net8.0\ref\ImoveisApi.dll
+C:\Users\monalisab\OneDrive\Desktop\Curso ADA\4 API WEB\ImoveisApi\ImoveisApi\obj\Debug\net8.0\ImoveisApi.csproj.AssemblyReference.cache
+C:\Users\monalisab\OneDrive\Desktop\Curso ADA\4 API WEB\ImoveisApi\ImoveisApi\obj\Debug\net8.0\ImoveisApi.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\monalisab\OneDrive\Desktop\Curso ADA\4 API WEB\ImoveisApi\ImoveisApi\obj\Debug\net8.0\ImoveisApi.AssemblyInfoInputs.cache
+C:\Users\monalisab\OneDrive\Desktop\Curso ADA\4 API WEB\ImoveisApi\ImoveisApi\obj\Debug\net8.0\ImoveisApi.AssemblyInfo.cs
+C:\Users\monalisab\OneDrive\Desktop\Curso ADA\4 API WEB\ImoveisApi\ImoveisApi\obj\Debug\net8.0\ImoveisApi.csproj.CoreCompileInputs.cache
+C:\Users\monalisab\OneDrive\Desktop\Curso ADA\4 API WEB\ImoveisApi\ImoveisApi\obj\Debug\net8.0\ImoveisApi.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\monalisab\OneDrive\Desktop\Curso ADA\4 API WEB\ImoveisApi\ImoveisApi\obj\Debug\net8.0\ImoveisApi.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\monalisab\OneDrive\Desktop\Curso ADA\4 API WEB\ImoveisApi\ImoveisApi\obj\Debug\net8.0\ImoveisApi.sourcelink.json
+C:\Users\monalisab\OneDrive\Desktop\Curso ADA\4 API WEB\ImoveisApi\ImoveisApi\obj\Debug\net8.0\ImoveisApi.dll
+C:\Users\monalisab\OneDrive\Desktop\Curso ADA\4 API WEB\ImoveisApi\ImoveisApi\obj\Debug\net8.0\refint\ImoveisApi.dll
+C:\Users\monalisab\OneDrive\Desktop\Curso ADA\4 API WEB\ImoveisApi\ImoveisApi\obj\Debug\net8.0\ImoveisApi.pdb
